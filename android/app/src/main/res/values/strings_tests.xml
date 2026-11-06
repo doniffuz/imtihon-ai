@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tests_title">Testlar</string>
+    <string name="tests_subtitle">Fanni tanlang va test boshlang</string>
+    <string name="tests_resume_title">Tugallanmagan test</string>
+    <string name="tests_resume_btn">Davom ettirish</string>
+    <string name="tests_questions_count">%1$d ta savol</string>
+    <string name="tests_no_questions">Bu fan uchun savollar hali qo‘shilmagan.</string>
+
+    <string name="question_of">Savol %1$d/%2$d</string>
+    <string name="btn_prev">Oldingi</string>
+    <string name="btn_next_q">Keyingi</string>
+    <string name="btn_finish">Yakunlash</string>
+    <string name="btn_mark">Belgilash</string>
+    <string name="btn_unmark">Belgini olib tashlash</string>
+    <string name="finish_title">Testni yakunlaysizmi?</string>
+    <string name="finish_unanswered">Javob berilmagan savollar: %1$d</string>
+    <string name="finish_all">Barcha savollarga javob berdingiz.</string>
+    <string name="dialog_yes">Yakunlash</string>
+    <string name="dialog_no">Davom etish</string>
+    <string name="test_load_error">Testni yuklab bo‘lmadi.</string>
+
+    <string name="result_title">Natija</string>
+    <string name="result_score">%1$d%%</string>
+    <string name="result_correct">To‘g‘ri javob: %1$d</string>
+    <string name="result_wrong">Noto‘g‘ri javob: %1$d</string>
+    <string name="result_skipped">Javobsiz: %1$d</string>
+    <string name="result_time">Vaqt: %1$s</string>
+    <string name="result_topics">Mavzu bo‘yicha natija</string>
+    <string name="result_mistakes">Qayerda xato qildim?</string>
+    <string name="result_no_mistakes">Xato yo‘q. Ajoyib natija!</string>
+    <string name="your_answer">Sizning javobingiz: %1$s</string>
+    <string name="no_answer">Javob berilmagan</string>
+    <string name="correct_answer">To‘g‘ri javob: %1$s</string>
+    <string name="explanation">Izoh: %1$s</string>
+    <string name="btn_close">Yopish</string>
+
+    <string name="results_title">Natijalar</string>
+    <string name="results_empty">Hali tugallangan test yo‘q. Birinchi testni Testlar bo‘limida yeching.</string>
+    <string name="result_row">%1$d/%2$d to‘g‘ri · %3$d%%</string>
+    <string name="rec_weak">%1$s mavzusi bo‘yicha natijangiz %2$d%%. Bugun shu mavzuni takrorlash tavsiya qilinadi.</string>
+</resources>

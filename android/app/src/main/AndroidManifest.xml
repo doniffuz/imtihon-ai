@@ -21,5 +21,11 @@
         <activity
             android:name=".OnboardingActivity"
             android:exported="false" />
+        <activity
+            android:name=".TestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ResultActivity"
+            android:exported="false" />
     </application>
 </manifest>

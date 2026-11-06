@@ -19,14 +19,17 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val prefs = Prefs(requireContext())
         val name = prefs.name.ifBlank { getString(R.string.guest_name) }
-        // Test tizimi hali yo'q, shuning uchun haqiqiy qiymat 0 (soxta raqam emas).
-        val solved = 0
+        val db = Db.get(requireContext())
+        val solved = db.solvedToday()
         val goal = prefs.dailyGoal
 
         view.findViewById<TextView>(R.id.greeting).text = getString(R.string.greeting, name)
         view.findViewById<TextView>(R.id.progress_text).text = getString(R.string.today_progress, solved, goal)
-        view.findViewById<LinearProgressIndicator>(R.id.progress_bar).progress = solved * 100 / goal
-        view.findViewById<TextView>(R.id.streak_text).text = getString(R.string.streak, 0)
+        view.findViewById<LinearProgressIndicator>(R.id.progress_bar).progress = minOf(100, solved * 100 / goal)
+        view.findViewById<TextView>(R.id.streak_text).text = getString(R.string.streak, db.streak())
+        db.weakestTopic()?.let { (topic, pct) ->
+            view.findViewById<TextView>(R.id.recommendation).text = getString(R.string.rec_weak, topic, pct)
+        }
 
         val main = requireActivity() as MainActivity
         view.findViewById<MaterialButton>(R.id.btn_start_test).setOnClickListener { main.select(R.id.nav_tests) }

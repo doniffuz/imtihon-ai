@@ -22,9 +22,9 @@ class MainActivity : AppCompatActivity() {
             show(
                 when (item.itemId) {
                     R.id.nav_home -> HomeFragment()
-                    R.id.nav_tests -> SoonFragment.newInstance(R.string.soon_tests)
+                    R.id.nav_tests -> TestsFragment()
                     R.id.nav_ai -> SoonFragment.newInstance(R.string.soon_ai)
-                    R.id.nav_results -> SoonFragment.newInstance(R.string.soon_results)
+                    R.id.nav_results -> ResultsFragment()
                     else -> ProfileFragment()
                 }
             )
