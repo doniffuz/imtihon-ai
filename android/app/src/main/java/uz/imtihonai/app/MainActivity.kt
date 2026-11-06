@@ -29,7 +29,15 @@ class MainActivity : AppCompatActivity() {
             )
             true
         }
-        if (savedInstanceState == null) nav.selectedItemId = R.id.nav_home
+        if (savedInstanceState == null) {
+            nav.selectedItemId = R.id.nav_home
+            // Ilova yopilib qayta ochilganda: tugallanmagan vaqtli imtihon bo'lsa davom ettiriladi
+            // (vaqti tugagan bo'lsa TestActivity uni avtomatik yakunlab natijani ko'rsatadi).
+            val open = Db.get(this).unfinished()
+            if (open != null && open.durationMs > 0L) {
+                startActivity(Intent(this, TestActivity::class.java).putExtra("attempt_id", open.id))
+            }
+        }
     }
 
     fun select(itemId: Int) {

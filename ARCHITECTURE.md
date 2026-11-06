@@ -49,3 +49,13 @@ Publish oldidan tekshiruvlar: duplicate, answer, explanation, options, difficult
 ## 8. Bosqichlar
 1 Arxitektura -> 2 DB sxema -> 3 Backend -> 4 UI tizimi -> 5 Android skelet -> 6 Test engine -> 7 Natijalar/tahlil -> 8 AI -> 9 OCR -> 10 Admin -> 11 Premium -> 12 Testlar -> 13 Release.
 Har bosqichdan keyin tekshiruv; critical xato bo'lsa keyingisiga o'tilmaydi.
+
+## 9. Imtihon tizimi (joriy lokal realizatsiya)
+- `ExamCore.kt` — Android'siz sof mantiq: `ExamMode`, `ExamTimer`, `QuestionRules` (validatsiya, hash), `Shuffle`.
+- `Db.kt` v4 — `questions(+topic_id, version, hash)`, `attempts(+mode, duration_ms, start_elapsed, cur_q, locked, reason)`, `answers(+opt_order)`.
+  Indekslar: `subject`, `(subject, topic_id, topic)`, `topic`, `difficulty`, `hash UNIQUE`, `id` (PK).
+- Savol tanlash: `ORDER BY RANDOM()` yo'q; kichik to'plamda id'lar aralashtiriladi, katta to'plamda tasodifiy rowid nuqtalari indeks orqali tekshiriladi.
+  Savollar va variantlar tartibi imtihon yaratilganda saqlanadi — qayta ochilganda o'zgarmaydi.
+- Vaqt: `ExamTimer.remainingMs` = davomiylik − (hozir − boshlanish); soat orqaga surilsa `elapsedRealtime` bilan himoyalangan.
+- Qulf: `setAnswer/setMarked` faqat ochiq (finished=0, locked=0) imtihonda ishlaydi; vaqt tugagan bo'lsa imtihon avtomatik yakunlanadi.
+- Backend: `backend/API.md`, `backend/schema.sql`. Ilovada INTERNET ruxsati hali yo'q.

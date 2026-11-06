@@ -5,8 +5,8 @@ import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.os.SystemClock
 import android.view.Gravity
-import android.view.View
 import android.widget.LinearLayout
 import android.widget.RadioButton
 import android.widget.RadioGroup
@@ -15,12 +15,18 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 
 class TestActivity : AppCompatActivity() {
 
     private lateinit var db: Db
     private var attemptId = -1L
-    private var startedAt = 0L
+    private var baseElapsed = 0
+    private var resumedAt = 0L
+    private var finishing = false
+    private var meta: AttemptMeta? = null
+    private var lastWarn = 0
+    private var dialog: androidx.appcompat.app.AlertDialog? = null
     private val items = ArrayList<Item>()
     private var index = 0
 
@@ -36,9 +42,28 @@ class TestActivity : AppCompatActivity() {
     private val handler = Handler(Looper.getMainLooper())
     private val ticker = object : Runnable {
         override fun run() {
-            tvTimer.text = formatTime(((System.currentTimeMillis() - startedAt) / 1000).toInt())
-            handler.postDelayed(this, 1000)
+            if (finishing) return
+            if (tick()) handler.postDelayed(this, 250)
         }
+    }
+
+    /** Taymerni yangilaydi. Vaqt tugagan bo'lsa imtihonni yakunlaydi va false qaytaradi. */
+    private fun tick(): Boolean {
+        val m = meta ?: return false
+        if (m.timed) {
+            val rem = m.remainingMs()
+            tvTimer.text = "⏱ " + formatTime(ExamTimer.displaySeconds(rem))
+            if (rem <= 0L) { autoFinish(); return false }
+            val level = ExamTimer.warnLevel(rem)
+            tvTimer.setTextColor(if (level == 1) 0xFFB3261E.toInt() else getColor(R.color.app_on_surface))
+            if (level != 0 && (lastWarn == 0 || level < lastWarn)) {
+                Snackbar.make(findViewById(android.R.id.content), getString(R.string.time_warning, level), Snackbar.LENGTH_SHORT).show()
+            }
+            lastWarn = level
+        } else {
+            tvTimer.text = "⏱ " + formatTime(currentElapsed())
+        }
+        return true
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,20 +81,28 @@ class TestActivity : AppCompatActivity() {
             }
         }
         val attempt = if (attemptId > 0) db.attempt(attemptId) else null
-        if (attempt == null) {
+        val m = if (attempt != null) db.attemptMeta(attemptId) else null
+        if (attempt == null || m == null) {
             Toast.makeText(this, R.string.test_load_error, Toast.LENGTH_LONG).show()
             finish()
             return
         }
-        startedAt = attempt.started
+        // Yakunlangan/qulflangan imtihonga qaytib bo'lmaydi: faqat natija ko'rsatiladi.
+        if (!m.isOpen) { showResultAndFinish(); return }
+        // Ilova yopiq turganda vaqt tugagan bo'lsa — avtomatik yakunlanadi.
+        if (m.timed && m.remainingMs() <= 0L) { meta = m; autoFinish(); return }
+        meta = m
+        lastWarn = ExamTimer.warnLevel(m.remainingMs()) // ochilganda o'tib ketgan bosqichlar uchun ogohlantirmaydi
+        baseElapsed = db.elapsed(attemptId)
         items.addAll(db.items(attemptId))
         if (items.isEmpty()) {
             Toast.makeText(this, R.string.test_load_error, Toast.LENGTH_LONG).show()
             finish()
             return
         }
-        index = savedInstanceState?.getInt("index")
-            ?: items.indexOfFirst { it.selected < 0 }.coerceAtLeast(0)
+        val firstOpen = items.indexOfFirst { it.selected < 0 }.coerceAtLeast(0)
+        index = (savedInstanceState?.getInt("index") ?: if (m.curQ in items.indices) m.curQ else firstOpen)
+            .coerceIn(0, items.size - 1)
 
         tvCounter = findViewById(R.id.tv_counter)
         tvTimer = findViewById(R.id.tv_timer)
@@ -80,14 +113,16 @@ class TestActivity : AppCompatActivity() {
         btnMark = findViewById(R.id.btn_mark)
         btnNext = findViewById(R.id.btn_next)
 
-        btnPrev.setOnClickListener { if (index > 0) { index--; render() } }
+        btnPrev.setOnClickListener { if (!finishing && index > 0) { index--; render() } }
         btnNext.setOnClickListener {
+            if (finishing) return@setOnClickListener
             if (index < items.size - 1) { index++; render() } else confirmFinish()
         }
         btnMark.setOnClickListener {
+            if (index !in items.indices) return@setOnClickListener
             val it = items[index]
             val m = !it.marked
-            db.setMarked(attemptId, it.question.id, m)
+            if (!db.setMarked(attemptId, it.question.id, m)) { lockedNow(); return@setOnClickListener }
             items[index] = it.copy(marked = m)
             render()
         }
@@ -100,40 +135,69 @@ class TestActivity : AppCompatActivity() {
         outState.putInt("index", index)
     }
 
+    private fun currentElapsed(): Int =
+        baseElapsed + ((SystemClock.elapsedRealtime() - resumedAt) / 1000).toInt()
+
     override fun onResume() {
         super.onResume()
-        if (items.isNotEmpty()) handler.post(ticker)
+        if (items.isNotEmpty() && !finishing) {
+            resumedAt = SystemClock.elapsedRealtime()
+            if (tick()) handler.post(ticker)
+        }
     }
 
     override fun onPause() {
         super.onPause()
         handler.removeCallbacks(ticker)
+        if (items.isNotEmpty() && !finishing) {
+            // Vaqtli imtihonda vaqt boshlanish momentidan hisoblanadi; bu faqat vaqtsiz rejim uchun faol vaqt.
+            baseElapsed = currentElapsed()
+            resumedAt = SystemClock.elapsedRealtime()
+            db.setElapsed(attemptId, baseElapsed)
+            db.setCurrentQuestion(attemptId, index)
+        }
+    }
+
+    override fun onDestroy() {
+        dialog?.dismiss()
+        dialog = null
+        super.onDestroy()
     }
 
     private fun render() {
         val item = items[index]
+        db.setCurrentQuestion(attemptId, index)
         tvCounter.text = getString(R.string.question_of, index + 1, items.size)
         tvQuestion.text = item.question.text
 
         options.setOnCheckedChangeListener(null)
         options.removeAllViews()
         val letters = listOf("A", "B", "C", "D")
-        item.question.options.forEachIndexed { i, text ->
+        // Variantlar tartibi imtihon yaratilganda saqlangan: qayta ochilsa o'zgarmaydi.
+        // Ko'rsatilgan i-o'rinda asl item.order[i]-variant turadi; saqlanadigan javob — asl indeks.
+        item.order.forEachIndexed { i, original ->
             options.addView(RadioButton(this).apply {
                 id = OPTION_ID + i
-                this.text = "${letters[i]}.  $text"
+                this.text = "${letters[i]}.  ${item.question.options[original]}"
                 textSize = 17f
                 minHeight = dp(56)
                 setPadding(dp(8), dp(8), dp(8), dp(8))
             })
         }
-        if (item.selected >= 0) options.check(OPTION_ID + item.selected)
+        if (item.selected >= 0) {
+            val shown = item.order.indexOf(item.selected)
+            if (shown >= 0) options.check(OPTION_ID + shown)
+        }
         options.setOnCheckedChangeListener { _, checkedId ->
-            val sel = checkedId - OPTION_ID
-            if (sel in 0..3) {
-                db.setAnswer(attemptId, items[index].question.id, sel)
-                items[index] = items[index].copy(selected = sel)
+            val shown = checkedId - OPTION_ID
+            if (finishing || shown !in 0..3 || index !in items.indices) return@setOnCheckedChangeListener
+            val cur = items[index]
+            val original = cur.order[shown]
+            if (db.setAnswer(attemptId, cur.question.id, original)) {
+                items[index] = cur.copy(selected = original)
                 renderNavigator()
+            } else {
+                lockedNow() // vaqt tugagan yoki imtihon yakunlangan: javob qabul qilinmaydi
             }
         }
 
@@ -141,6 +205,12 @@ class TestActivity : AppCompatActivity() {
         btnMark.setText(if (item.marked) R.string.btn_unmark else R.string.btn_mark)
         btnNext.setText(if (index == items.size - 1) R.string.btn_finish else R.string.btn_next_q)
         renderNavigator()
+    }
+
+    /** Javob/belgi qabul qilinmadi: imtihon yakunlangan bo'lsa natijaga o'tamiz. */
+    private fun lockedNow() {
+        val m = db.attemptMeta(attemptId)
+        if (m == null || !m.isOpen) showResultAndFinish()
     }
 
     private fun renderNavigator() {
@@ -176,10 +246,11 @@ class TestActivity : AppCompatActivity() {
     }
 
     private fun confirmFinish() {
+        if (finishing || dialog?.isShowing == true) return
         val unanswered = items.count { it.selected < 0 }
         val msg = if (unanswered > 0) getString(R.string.finish_unanswered, unanswered)
         else getString(R.string.finish_all)
-        MaterialAlertDialogBuilder(this)
+        dialog = MaterialAlertDialogBuilder(this)
             .setTitle(R.string.finish_title)
             .setMessage(msg)
             .setPositiveButton(R.string.dialog_yes) { _, _ -> finishTest() }
@@ -188,7 +259,26 @@ class TestActivity : AppCompatActivity() {
     }
 
     private fun finishTest() {
-        db.finishAttempt(attemptId)
+        if (finishing) return
+        finishing = true
+        handler.removeCallbacks(ticker)
+        db.setElapsed(attemptId, currentElapsed())
+        db.finishAttempt(attemptId, "manual")
+        showResultAndFinish()
+    }
+
+    /** Vaqt 00:00: javoblar saqlangan, javobsizlar skipped, imtihon qulflanadi, natija hisoblanadi, Result ochiladi. */
+    private fun autoFinish() {
+        if (finishing) return
+        finishing = true
+        handler.removeCallbacks(ticker)
+        dialog?.dismiss()
+        db.finishAttempt(attemptId, "timeout")
+        showResultAndFinish()
+    }
+
+    private fun showResultAndFinish() {
+        finishing = true
         startActivity(Intent(this, ResultActivity::class.java).putExtra("attempt_id", attemptId))
         finish()
     }

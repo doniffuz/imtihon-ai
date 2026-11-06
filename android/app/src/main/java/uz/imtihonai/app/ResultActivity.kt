@@ -40,15 +40,29 @@ class ResultActivity : AppCompatActivity() {
             })
         }
 
-        val percent = if (att.total > 0) att.correct * 100 / att.total else 0
+        val answered = att.total - att.skipped
+        // Foiz = javob berilgan savollar ichida to'g'rilari (35/42 = 83.3%). Ball = jami savollarga nisbatan.
+        val accuracy = percentOf(att.correct, answered)
+        val score = percentOf(att.correct, att.total)
         val subjectName = Subjects.names(this)[att.subject] ?: att.subject
+        val timeout = att.timedOut
 
-        text(getString(R.string.result_title) + " · " + subjectName, 16f)
-        text(getString(R.string.result_score, percent), 56f, bold = true, top = 4, color = getColor(R.color.brand_primary))
+        text(getString(R.string.result_finished_title), 16f, bold = true)
+        text(subjectName, 16f, top = 2)
+        text(getString(R.string.result_score_big, Math.round(score).toInt()), 48f, bold = true, top = 4, color = getColor(R.color.brand_primary))
+        text(getString(R.string.result_accuracy, percentText(accuracy)), 20f, bold = true, top = 2)
+        text(getString(R.string.result_total, att.total), 18f, top = 8)
+        text(getString(R.string.result_answered, answered), 18f, top = 4)
+        text(getString(R.string.result_unanswered, att.skipped), 18f, top = 4)
         text(getString(R.string.result_correct, att.correct), 18f, top = 8)
         text(getString(R.string.result_wrong, att.wrong), 18f, top = 4)
-        text(getString(R.string.result_skipped, att.skipped), 18f, top = 4)
+        text(getString(R.string.result_points, att.correct, att.total, percentText(percentOf(att.correct, att.total))), 18f, top = 4)
         text(getString(R.string.result_time, formatTime(att.timeSec)), 18f, top = 4)
+        text(
+            getString(R.string.result_reason, getString(if (timeout) R.string.reason_timeout else R.string.reason_manual)),
+            18f, bold = true, top = 8,
+            color = if (timeout) 0xFFB3261E.toInt() else getColor(R.color.app_on_surface)
+        )
 
         text(getString(R.string.result_topics), 20f, bold = true, top = 28)
         for ((topic, ok, total) in db.topicBreakdown(id)) {
@@ -71,8 +85,25 @@ class ResultActivity : AppCompatActivity() {
         }
 
         root.addView(MaterialButton(this).apply {
-            setText(R.string.btn_close)
+            setText(R.string.btn_retry)
             layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dp(56)).apply { topMargin = dp(28) }
+            setOnClickListener {
+                val newId = if (att.subject == "weak") db.createWeakAttempt(att.total.coerceAtLeast(10))
+                else db.createExam(
+                    ExamConfig(
+                        if (att.subject == "all") null else att.subject, null,
+                        ExamMode.from(att.mode), att.total, att.durationMs
+                    )
+                )
+                if (newId > 0) {
+                    startActivity(android.content.Intent(this@ResultActivity, TestActivity::class.java).putExtra("attempt_id", newId))
+                    finish()
+                }
+            }
+        })
+        root.addView(MaterialButton(this, null, com.google.android.material.R.attr.materialButtonOutlinedStyle).apply {
+            setText(R.string.btn_close)
+            layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dp(56)).apply { topMargin = dp(12) }
             setOnClickListener { finish() }
         })
     }

@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Ilova to'liq lokal ishlaydi: hech qanday permission (shu jumladan INTERNET) kerak emas. -->
 
     <application
         android:allowBackup="false"
+        android:fullBackupContent="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:enableOnBackInvokedCallback="true"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ImtihonAI">
+        android:theme="@style/Theme.ImtihonAI"
+        tools:targetApi="36">
 
         <activity
             android:name=".MainActivity"
@@ -18,14 +25,9 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".OnboardingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".TestActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ResultActivity"
-            android:exported="false" />
+        <activity android:name=".OnboardingActivity" android:exported="false" />
+        <activity android:name=".ExamSetupActivity" android:exported="false" />
+        <activity android:name=".TestActivity" android:exported="false" />
+        <activity android:name=".ResultActivity" android:exported="false" />
     </application>
 </manifest>

@@ -54,9 +54,17 @@ class ProfileFragment : Fragment() {
                 ViewGroup.LayoutParams.MATCH_PARENT, (56 * d).toInt()
             ).apply { topMargin = (32 * d).toInt() }
             setOnClickListener {
-                prefs.clear()
-                startActivity(Intent(ctx, OnboardingActivity::class.java))
-                requireActivity().finish()
+                com.google.android.material.dialog.MaterialAlertDialogBuilder(ctx)
+                    .setTitle(R.string.profile_reset)
+                    .setMessage(R.string.profile_reset_confirm)
+                    .setPositiveButton(R.string.dialog_yes) { _, _ ->
+                        prefs.clear()
+                        Db.get(ctx).clearProgress()
+                        startActivity(Intent(ctx, OnboardingActivity::class.java))
+                        requireActivity().finish()
+                    }
+                    .setNegativeButton(R.string.dialog_cancel, null)
+                    .show()
             }
         })
         return root

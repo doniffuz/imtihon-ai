@@ -1,0 +1,14 @@
+#!/bin/sh
+# Gradle wrapper ishga tushirgich. gradle-wrapper.jar yo'q bo'lsa, rasmiy Gradle repo'sidan bir marta yuklab oladi.
+set -e
+APP_HOME=$(cd "$(dirname "$0")" && pwd -P)
+JAR="$APP_HOME/gradle/wrapper/gradle-wrapper.jar"
+if [ ! -f "$JAR" ]; then
+  echo "gradle-wrapper.jar yuklanmoqda..."
+  URL="https://raw.githubusercontent.com/gradle/gradle/v8.11.1/gradle/wrapper/gradle-wrapper.jar"
+  if command -v curl >/dev/null 2>&1; then curl -fsSL "$URL" -o "$JAR"
+  elif command -v wget >/dev/null 2>&1; then wget -q "$URL" -O "$JAR"
+  else echo "curl yoki wget kerak. Yoki: gradle wrapper --gradle-version 8.11.1" >&2; exit 1; fi
+fi
+if [ -n "$JAVA_HOME" ] && [ -x "$JAVA_HOME/bin/java" ]; then JAVACMD="$JAVA_HOME/bin/java"; else JAVACMD=java; fi
+exec "$JAVACMD" -Dorg.gradle.appname=gradlew -classpath "$JAR" org.gradle.wrapper.GradleWrapperMain "$@"

@@ -62,7 +62,8 @@ class TestsFragment : Fragment() {
                 setPadding((20 * d).toInt(), (16 * d).toInt(), (20 * d).toInt(), (16 * d).toInt())
             }
             inner.addView(TextView(ctx).apply {
-                text = getString(R.string.tests_resume_title) + " · " + (names[att.subject] ?: att.subject)
+                text = getString(R.string.tests_resume_title) + " · " + (names[att.subject] ?: att.subject) +
+                    (if (att.durationMs > 0) " · ⏱" else "")
                 textSize = 17f
                 setTypeface(typeface, Typeface.BOLD)
                 setTextColor(ctx.getColor(R.color.brand_on_container))
@@ -136,7 +137,7 @@ class TestsFragment : Fragment() {
                 if (count == 0) {
                     Toast.makeText(ctx, R.string.tests_no_questions, Toast.LENGTH_SHORT).show()
                 } else {
-                    startActivity(Intent(ctx, TestActivity::class.java).putExtra("subject", slug))
+                    startActivity(Intent(ctx, ExamSetupActivity::class.java).putExtra("subject", slug))
                 }
             }
             root.addView(card)

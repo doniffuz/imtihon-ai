@@ -21,6 +21,38 @@
     <string name="test_load_error">Testni yuklab bo‘lmadi.</string>
 
     <string name="result_title">Natija</string>
+    <string name="result_finished_title">IMTIHON YAKUNLANDI</string>
+    <string name="result_total">%1$d ta savol</string>
+    <string name="result_answered">%1$d ta javob berilgan</string>
+    <string name="result_unanswered">%1$d ta javobsiz</string>
+    <string name="result_score_big">Ball: %1$d</string>
+    <string name="result_accuracy">Aniqlik: %1$s</string>
+    <string name="result_points">Ball: %1$d / %2$d (%3$s)</string>
+    <string name="result_reason">Sabab: %1$s</string>
+    <string name="reason_timeout">VAQT TUGADI</string>
+    <string name="reason_manual">Foydalanuvchi yakunladi (vaqt tugamagan)</string>
+    <string name="time_warning">%1$d daqiqa qoldi</string>
+    <string name="random_all_title">Aralash test</string>
+    <string name="setup_mode">Imtihon turi</string>
+    <string name="setup_topic">Mavzu</string>
+    <string name="setup_count">Savollar soni</string>
+    <string name="setup_time">Vaqt</string>
+    <string name="setup_start">Boshlash</string>
+    <string name="setup_minutes">%1$d daqiqa</string>
+    <string name="setup_untimed">Vaqtsiz</string>
+    <string name="setup_questions">%1$d ta savol</string>
+    <string name="setup_available">Bazada mavjud: %1$d ta savol</string>
+    <string name="mode_practice">Mashq (vaqt ixtiyoriy)</string>
+    <string name="mode_timed">Vaqtli imtihon (vaqt majburiy)</string>
+    <string name="mode_topic">Mavzu bo‘yicha test</string>
+    <string name="mode_random">Aralash test (barcha fanlardan)</string>
+    <string name="mode_exam">Imtihon</string>
+    <string name="mode_full">To‘liq imtihon</string>
+    <string name="weak_topics_title">Zaif mavzular</string>
+    <string name="weak_label">Zaif mavzu</string>
+    <string name="timed_stats_title">Vaqtli imtihonlar statistikasi</string>
+    <string name="timed_row">Ball: %1$s · Aniqlik: %2$d%% · Vaqt: %3$s</string>
+    <string name="timed_row2">To‘g‘ri: %1$d · Noto‘g‘ri: %2$d · Javobsiz: %3$d</string>
     <string name="result_score">%1$d%%</string>
     <string name="result_correct">To‘g‘ri javob: %1$d</string>
     <string name="result_wrong">Noto‘g‘ri javob: %1$d</string>
@@ -34,6 +66,7 @@
     <string name="correct_answer">To‘g‘ri javob: %1$s</string>
     <string name="explanation">Izoh: %1$s</string>
     <string name="btn_close">Yopish</string>
+    <string name="btn_retry">Qayta urinish</string>
 
     <string name="weak_practice_title">Zaif mavzularni mashq qilish</string>
     <string name="stats_title">Umumiy statistika</string>

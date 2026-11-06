@@ -1,4 +1,4 @@
-name: Build APK
+name: Build
 
 on:
   push:
@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      HAS_KEYSTORE: ${{ secrets.KEYSTORE_BASE64 != '' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -16,16 +18,61 @@ jobs:
           distribution: temurin
           java-version: 17
 
-
       - uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: 8.2
 
-      - name: Build debug APK
+      - name: Unit tests (JVM)
         working-directory: android
-        run: gradle assembleDebug --no-daemon
+        run: sh ./gradlew test --no-daemon
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: unit-test-reports
+          path: android/app/build/reports/tests/
+
+      - name: Debug APK
+        working-directory: android
+        run: sh ./gradlew assembleDebug --no-daemon
+
+      # Release AAB: GitHub Secrets kerak (README ga qarang). Secret yo'q bo'lsa, imzosiz AAB chiqadi.
+      - name: Restore keystore
+        if: env.HAS_KEYSTORE == 'true'
+        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > "$RUNNER_TEMP/upload.jks"
+
+      - name: Release AAB
+        working-directory: android
+        env:
+          IMTIHON_KEYSTORE_FILE: ${{ runner.temp }}/upload.jks
+          IMTIHON_KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          IMTIHON_KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          IMTIHON_KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: sh ./gradlew bundleRelease --no-daemon
+
+      - name: Signed release APK + verify
+        if: env.HAS_KEYSTORE == 'true'
+        working-directory: android
+        env:
+          IMTIHON_KEYSTORE_FILE: ${{ runner.temp }}/upload.jks
+          IMTIHON_KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          IMTIHON_KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          IMTIHON_KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          sh ./gradlew assembleRelease --no-daemon
+          APKSIGNER=$(ls "$ANDROID_HOME"/build-tools/*/apksigner | sort -V | tail -1)
+          "$APKSIGNER" verify --verbose app/build/outputs/apk/release/*.apk
+
+      - uses: actions/upload-artifact@v4
+        if: env.HAS_KEYSTORE == 'true'
+        with:
+          name: imtihon-ai-release-apk
+          path: android/app/build/outputs/apk/release/*.apk
 
       - uses: actions/upload-artifact@v4
         with:
           name: imtihon-ai-debug-apk
           path: android/app/build/outputs/apk/debug/*.apk
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: imtihon-ai-release-aab
+          path: android/app/build/outputs/bundle/release/*.aab

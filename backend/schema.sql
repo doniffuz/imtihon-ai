@@ -196,3 +196,7 @@ CREATE TABLE audit_log (
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
   -- sezgir ma'lumot (parol, token) yozilmaydi
 );
+
+-- 1M+ savol uchun qo'shimcha indekslar (inkremental sinxronizatsiya va keyset pagination)
+CREATE INDEX idx_q_pub  ON questions(status, subject_id, id);          -- published savollarni id bo'yicha sahifalash
+CREATE INDEX idx_q_sync ON questions(updated_at, id);                  -- "since" bo'yicha o'zgarganlarni olish

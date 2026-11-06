@@ -21,7 +21,7 @@ class HomeFragment : Fragment() {
         val name = prefs.name.ifBlank { getString(R.string.guest_name) }
         val db = Db.get(requireContext())
         val solved = db.solvedToday()
-        val goal = prefs.dailyGoal
+        val goal = prefs.dailyGoal.coerceAtLeast(1)
 
         view.findViewById<TextView>(R.id.greeting).text = getString(R.string.greeting, name)
         view.findViewById<TextView>(R.id.progress_text).text = getString(R.string.today_progress, solved, goal)
@@ -35,7 +35,6 @@ class HomeFragment : Fragment() {
         view.findViewById<MaterialButton>(R.id.btn_start_test).setOnClickListener { main.select(R.id.nav_tests) }
 
         val cards = view.findViewById<LinearLayout>(R.id.cards)
-        addCard(cards, R.string.card_exam) { main.select(R.id.nav_tests) }
         addCard(cards, R.string.card_subjects) { main.select(R.id.nav_tests) }
         addCard(cards, R.string.card_results) { main.select(R.id.nav_results) }
     }

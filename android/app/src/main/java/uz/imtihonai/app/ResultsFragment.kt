@@ -70,10 +70,10 @@ class ResultsFragment : Fragment() {
                 setPadding(0, (top * d).toInt(), 0, 0)
             })
         }
-        val accuracy = if (t[2] > 0) t[1] * 100 / t[2] else 0
+        val accuracy = if (t[4] > 0) t[1] * 100 / t[4] else 0 // aniqlik = correct / answered
         line(getString(R.string.stats_title), 20f, bold = true, top = 8)
         line(getString(R.string.stats_tests, t[0]), 16f)
-        line(getString(R.string.stats_solved, t[2]), 16f)
+        line(getString(R.string.stats_solved, t[4]), 16f)
         line(getString(R.string.stats_accuracy, accuracy), 16f)
         val avg = list.map { if (it.total > 0) it.correct * 100 / it.total else 0 }.average().toInt()
         line(getString(R.string.stats_avg, avg), 16f)
@@ -81,6 +81,28 @@ class ResultsFragment : Fragment() {
         line(getString(R.string.stats_by_subject), 20f, bold = true, top = 20)
         for ((slug, ok, total) in db.subjectStats()) {
             line("${names[slug] ?: slug} — ${ok * 100 / total}%  ($ok/$total)", 16f, top = 6)
+        }
+        val weak = db.weakTopicsDetailed()
+        if (weak.isNotEmpty()) {
+            line(getString(R.string.weak_topics_title), 20f, bold = true, top = 20)
+            for ((subj, topic, pct) in weak) {
+                line("${names[subj] ?: subj} → $topic — $pct%  ${getString(R.string.weak_label)}", 16f, top = 6)
+            }
+        }
+        val timed = db.timedAttempts()
+        if (timed.isNotEmpty()) {
+            line(getString(R.string.timed_stats_title), 20f, bold = true, top = 20)
+            for (a in timed) {
+                val answered = a.total - a.skipped
+                val acc = if (answered > 0) a.correct * 100 / answered else 0
+                line(
+                    "${names[a.subject] ?: a.subject} · ${fmt.format(Date(a.finished))}\n" +
+                        getString(R.string.timed_row, percentText(percentOf(a.correct, a.total)), acc, formatTime(a.timeSec)) + "\n" +
+                        getString(R.string.timed_row2, a.correct, a.wrong, a.skipped) + "\n" +
+                        getString(R.string.result_reason, getString(if (a.timedOut) R.string.reason_timeout else R.string.reason_manual)),
+                    15f, top = 8
+                )
+            }
         }
         line(getString(R.string.history_title), 20f, bold = true, top = 20)
 
