@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
                 when (item.itemId) {
                     R.id.nav_home -> HomeFragment()
                     R.id.nav_tests -> TestsFragment()
-                    R.id.nav_ai -> SoonFragment.newInstance(R.string.soon_ai)
                     R.id.nav_results -> ResultsFragment()
                     else -> ProfileFragment()
                 }

@@ -36,10 +36,8 @@ class HomeFragment : Fragment() {
 
         val cards = view.findViewById<LinearLayout>(R.id.cards)
         addCard(cards, R.string.card_exam) { main.select(R.id.nav_tests) }
-        addCard(cards, R.string.card_ai) { main.select(R.id.nav_ai) }
         addCard(cards, R.string.card_subjects) { main.select(R.id.nav_tests) }
         addCard(cards, R.string.card_results) { main.select(R.id.nav_results) }
-        addCard(cards, R.string.card_scan) { main.select(R.id.nav_ai) }
     }
 
     private fun addCard(parent: LinearLayout, label: Int, onClick: () -> Unit) {

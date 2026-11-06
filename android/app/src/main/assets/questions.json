@@ -862,5 +862,1445 @@
   "answer": 0,
   "explanation": "Konstitutsiya kuni — 8-dekabr.",
   "source": "original"
+ },
+ {
+  "id": "q055",
+  "subject": "math",
+  "topic": "Tenglamalar",
+  "difficulty": 1,
+  "question": "3x − 5 = 16 tenglamada x nimaga teng?",
+  "options": [
+   "9",
+   "7",
+   "8",
+   "6"
+  ],
+  "answer": 1,
+  "explanation": "3x = 16 + 5 = 21, demak x = 7.",
+  "source": "original"
+ },
+ {
+  "id": "q056",
+  "subject": "math",
+  "topic": "Geometriya",
+  "difficulty": 1,
+  "question": "Doira radiusi 5 ga teng bo‘lsa, diametri nechaga teng?",
+  "options": [
+   "10",
+   "25",
+   "5",
+   "15"
+  ],
+  "answer": 0,
+  "explanation": "Diametr radiusdan ikki baravar katta: 2 · 5 = 10.",
+  "source": "original"
+ },
+ {
+  "id": "q057",
+  "subject": "math",
+  "topic": "Foizlar",
+  "difficulty": 1,
+  "question": "120 ning 25 foizi nechaga teng?",
+  "options": [
+   "30",
+   "25",
+   "35",
+   "40"
+  ],
+  "answer": 0,
+  "explanation": "120 · 25 / 100 = 30.",
+  "source": "original"
+ },
+ {
+  "id": "q058",
+  "subject": "math",
+  "topic": "Geometriya",
+  "difficulty": 1,
+  "question": "Tomonlari 4 va 9 bo‘lgan to‘g‘ri to‘rtburchakning yuzi nechaga teng?",
+  "options": [
+   "13",
+   "26",
+   "32",
+   "36"
+  ],
+  "answer": 3,
+  "explanation": "Yuz = 4 · 9 = 36.",
+  "source": "original"
+ },
+ {
+  "id": "q059",
+  "subject": "math",
+  "topic": "Arifmetika",
+  "difficulty": 1,
+  "question": "(−3) · (−4) nechaga teng?",
+  "options": [
+   "−7",
+   "7",
+   "−12",
+   "12"
+  ],
+  "answer": 3,
+  "explanation": "Ikki manfiy son ko‘paytmasi musbat: 12.",
+  "source": "original"
+ },
+ {
+  "id": "q060",
+  "subject": "math",
+  "topic": "Sonlar nazariyasi",
+  "difficulty": 1,
+  "question": "Eng kichik tub son qaysi?",
+  "options": [
+   "3",
+   "2",
+   "1",
+   "0"
+  ],
+  "answer": 1,
+  "explanation": "2 — eng kichik tub son (1 tub son emas).",
+  "source": "original"
+ },
+ {
+  "id": "q061",
+  "subject": "math",
+  "topic": "Arifmetika",
+  "difficulty": 1,
+  "question": "√81 nechaga teng?",
+  "options": [
+   "7",
+   "8",
+   "18",
+   "9"
+  ],
+  "answer": 3,
+  "explanation": "9 · 9 = 81.",
+  "source": "original"
+ },
+ {
+  "id": "q062",
+  "subject": "math",
+  "topic": "Geometriya",
+  "difficulty": 2,
+  "question": "Katetlari 3 va 4 bo‘lgan to‘g‘ri burchakli uchburchakning gipotenuzasi nechaga teng?",
+  "options": [
+   "12",
+   "7",
+   "5",
+   "6"
+  ],
+  "answer": 2,
+  "explanation": "Pifagor teoremasi: 3² + 4² = 25, √25 = 5.",
+  "source": "original"
+ },
+ {
+  "id": "q063",
+  "subject": "math",
+  "topic": "Darajalar",
+  "difficulty": 1,
+  "question": "2³ nechaga teng?",
+  "options": [
+   "6",
+   "16",
+   "8",
+   "9"
+  ],
+  "answer": 2,
+  "explanation": "2³ = 2 · 2 · 2 = 8.",
+  "source": "original"
+ },
+ {
+  "id": "q064",
+  "subject": "math",
+  "topic": "Kasrlar",
+  "difficulty": 2,
+  "question": "1/2 + 1/4 nechaga teng?",
+  "options": [
+   "3/4",
+   "2/6",
+   "1/4",
+   "1/8"
+  ],
+  "answer": 0,
+  "explanation": "1/2 = 2/4, 2/4 + 1/4 = 3/4.",
+  "source": "original"
+ },
+ {
+  "id": "q065",
+  "subject": "native_language",
+  "topic": "Morfologiya",
+  "difficulty": 1,
+  "question": "Quyidagi so‘zlardan qaysi biri sifat?",
+  "options": [
+   "besh",
+   "chiroyli",
+   "daftar",
+   "yugurmoq"
+  ],
+  "answer": 1,
+  "explanation": "“Chiroyli” — belgini bildiradi, qanday? so‘rog‘iga javob beradi.",
+  "source": "original"
+ },
+ {
+  "id": "q066",
+  "subject": "native_language",
+  "topic": "Morfologiya",
+  "difficulty": 1,
+  "question": "“Besh” so‘zi qaysi so‘z turkumiga kiradi?",
+  "options": [
+   "Sifat",
+   "Ot",
+   "Son",
+   "Fe’l"
+  ],
+  "answer": 2,
+  "explanation": "“Besh” — miqdorni bildiradi, son.",
+  "source": "original"
+ },
+ {
+  "id": "q067",
+  "subject": "native_language",
+  "topic": "Morfologiya",
+  "difficulty": 1,
+  "question": "“Men” so‘zi qaysi so‘z turkumiga kiradi?",
+  "options": [
+   "Ot",
+   "Son",
+   "Olmosh",
+   "Fe’l"
+  ],
+  "answer": 2,
+  "explanation": "“Men” — kishilik olmoshi.",
+  "source": "original"
+ },
+ {
+  "id": "q068",
+  "subject": "native_language",
+  "topic": "Morfologiya",
+  "difficulty": 2,
+  "question": "O‘zbek tilida nechta kelishik bor?",
+  "options": [
+   "7",
+   "4",
+   "5",
+   "6"
+  ],
+  "answer": 3,
+  "explanation": "Bosh, qaratqich, tushum, jo‘nalish, o‘rin-payt, chiqish.",
+  "source": "original"
+ },
+ {
+  "id": "q069",
+  "subject": "native_language",
+  "topic": "Morfologiya",
+  "difficulty": 2,
+  "question": "Qaratqich kelishigi qo‘shimchasi qaysi?",
+  "options": [
+   "-ning",
+   "-da",
+   "-ni",
+   "-ga"
+  ],
+  "answer": 0,
+  "explanation": "Qaratqich kelishigi — -ning (kitobning).",
+  "source": "original"
+ },
+ {
+  "id": "q070",
+  "subject": "native_language",
+  "topic": "Fonetika",
+  "difficulty": 1,
+  "question": "“O‘quvchi” so‘zida nechta bo‘g‘in bor?",
+  "options": [
+   "2",
+   "3",
+   "4",
+   "5"
+  ],
+  "answer": 1,
+  "explanation": "O‘-quv-chi.",
+  "source": "original"
+ },
+ {
+  "id": "q071",
+  "subject": "native_language",
+  "topic": "Punktuatsiya",
+  "difficulty": 1,
+  "question": "Darak gap oxiriga qaysi tinish belgisi qo‘yiladi?",
+  "options": [
+   "So‘roq belgisi",
+   "Vergul",
+   "Undov belgisi",
+   "Nuqta"
+  ],
+  "answer": 3,
+  "explanation": "Darak gap oxiriga nuqta qo‘yiladi.",
+  "source": "original"
+ },
+ {
+  "id": "q072",
+  "subject": "native_language",
+  "topic": "Leksikologiya",
+  "difficulty": 1,
+  "question": "“Katta” so‘zining antonimi (zid ma’nodoshi) qaysi?",
+  "options": [
+   "baland",
+   "keng",
+   "kichik",
+   "uzun"
+  ],
+  "answer": 2,
+  "explanation": "Katta ↔ kichik.",
+  "source": "original"
+ },
+ {
+  "id": "q073",
+  "subject": "native_language",
+  "topic": "Leksikologiya",
+  "difficulty": 1,
+  "question": "Ma’nosi qarama-qarshi so‘zlar nima deb ataladi?",
+  "options": [
+   "Omonimlar",
+   "Paronimlar",
+   "Antonimlar",
+   "Sinonimlar"
+  ],
+  "answer": 2,
+  "explanation": "Zid ma’noli so‘zlar — antonimlar.",
+  "source": "original"
+ },
+ {
+  "id": "q074",
+  "subject": "native_language",
+  "topic": "Leksikologiya",
+  "difficulty": 1,
+  "question": "Ma’nodosh so‘zlar nima deb ataladi?",
+  "options": [
+   "Omonimlar",
+   "Sinonimlar",
+   "Paronimlar",
+   "Antonimlar"
+  ],
+  "answer": 1,
+  "explanation": "Ma’nosi yaqin so‘zlar — sinonimlar.",
+  "source": "original"
+ },
+ {
+  "id": "q075",
+  "subject": "history",
+  "topic": "Temuriylar davri",
+  "difficulty": 1,
+  "question": "Amir Temur davlatining poytaxti qaysi shahar edi?",
+  "options": [
+   "Toshkent",
+   "Samarqand",
+   "Buxoro",
+   "Xiva"
+  ],
+  "answer": 1,
+  "explanation": "Temur davlatining poytaxti Samarqand bo‘lgan.",
+  "source": "original"
+ },
+ {
+  "id": "q076",
+  "subject": "history",
+  "topic": "Madaniyat",
+  "difficulty": 1,
+  "question": "“Algebra” atamasi qaysi allomaning asari nomidan kelib chiqqan?",
+  "options": [
+   "Ibn Sino",
+   "Farobiy",
+   "Beruniy",
+   "Al-Xorazmiy"
+  ],
+  "answer": 3,
+  "explanation": "Al-Xorazmiyning “al-jabr” asaridan.",
+  "source": "original"
+ },
+ {
+  "id": "q077",
+  "subject": "history",
+  "topic": "Madaniyat",
+  "difficulty": 1,
+  "question": "“Tib qonunlari” asarining muallifi kim?",
+  "options": [
+   "Beruniy",
+   "Al-Xorazmiy",
+   "Farobiy",
+   "Abu Ali ibn Sino"
+  ],
+  "answer": 3,
+  "explanation": "“Tib qonunlari” — Ibn Sino asari.",
+  "source": "original"
+ },
+ {
+  "id": "q078",
+  "subject": "history",
+  "topic": "Mustaqillik",
+  "difficulty": 1,
+  "question": "O‘zbekiston Respublikasining birinchi Prezidenti kim?",
+  "options": [
+   "Shavkat Mirziyoyev",
+   "Abdulla Qodiriy",
+   "Mirzo Ulug‘bek",
+   "Islom Karimov"
+  ],
+  "answer": 3,
+  "explanation": "Birinchi Prezident — Islom Karimov.",
+  "source": "original"
+ },
+ {
+  "id": "q079",
+  "subject": "history",
+  "topic": "Mustaqillik",
+  "difficulty": 1,
+  "question": "Mustaqillik kuni qachon nishonlanadi?",
+  "options": [
+   "1-sentabr",
+   "21-mart",
+   "8-dekabr",
+   "9-may"
+  ],
+  "answer": 0,
+  "explanation": "Mustaqillik 1-sentabrda nishonlanadi.",
+  "source": "original"
+ },
+ {
+  "id": "q080",
+  "subject": "history",
+  "topic": "An’analar",
+  "difficulty": 1,
+  "question": "Navro‘z bayrami qachon nishonlanadi?",
+  "options": [
+   "1-may",
+   "21-mart",
+   "9-may",
+   "1-yanvar"
+  ],
+  "answer": 1,
+  "explanation": "Navro‘z — 21-mart, bahor kirishi bayrami.",
+  "source": "original"
+ },
+ {
+  "id": "q081",
+  "subject": "history",
+  "topic": "Qadimgi davr",
+  "difficulty": 1,
+  "question": "Buyuk Ipak yo‘li qaysi qit’alarni bog‘lagan?",
+  "options": [
+   "Avstraliya va Antarktida",
+   "Osiyo va Yevropa",
+   "Amerika va Osiyo",
+   "Afrika va Amerika"
+  ],
+  "answer": 1,
+  "explanation": "Ipak yo‘li Sharq (Osiyo) bilan G‘arb (Yevropa)ni bog‘lagan.",
+  "source": "original"
+ },
+ {
+  "id": "q082",
+  "subject": "history",
+  "topic": "Mustaqillik",
+  "difficulty": 1,
+  "question": "O‘zbekiston Respublikasining milliy valyutasi qaysi?",
+  "options": [
+   "So‘m",
+   "Dollar",
+   "Rubl",
+   "Tenge"
+  ],
+  "answer": 0,
+  "explanation": "Milliy valyuta — O‘zbekiston so‘mi.",
+  "source": "original"
+ },
+ {
+  "id": "q083",
+  "subject": "history",
+  "topic": "Me’morchilik",
+  "difficulty": 1,
+  "question": "Registon maydoni qaysi shaharda joylashgan?",
+  "options": [
+   "Samarqand",
+   "Toshkent",
+   "Buxoro",
+   "Xiva"
+  ],
+  "answer": 0,
+  "explanation": "Registon — Samarqanddagi mashhur me’moriy majmua.",
+  "source": "original"
+ },
+ {
+  "id": "q084",
+  "subject": "history",
+  "topic": "Adabiyot tarixi",
+  "difficulty": 2,
+  "question": "“Hayrat ul-abror” asarining muallifi kim?",
+  "options": [
+   "Ibn Sino",
+   "Beruniy",
+   "Alisher Navoiy",
+   "Bobur"
+  ],
+  "answer": 2,
+  "explanation": "“Hayrat ul-abror” — “Xamsa” tarkibidagi birinchi doston, muallifi Navoiy.",
+  "source": "original"
+ },
+ {
+  "id": "q085",
+  "subject": "physics",
+  "topic": "Birliklar",
+  "difficulty": 1,
+  "question": "SI tizimida massa birligi nima?",
+  "options": [
+   "Litr",
+   "Nyuton",
+   "Kilogramm",
+   "Gramm"
+  ],
+  "answer": 2,
+  "explanation": "SI da massa birligi — kilogramm (kg).",
+  "source": "original"
+ },
+ {
+  "id": "q086",
+  "subject": "physics",
+  "topic": "Birliklar",
+  "difficulty": 1,
+  "question": "Ish va energiya birligi nima?",
+  "options": [
+   "Vatt",
+   "Paskal",
+   "Joul",
+   "Nyuton"
+  ],
+  "answer": 2,
+  "explanation": "Ish va energiya joulda (J) o‘lchanadi.",
+  "source": "original"
+ },
+ {
+  "id": "q087",
+  "subject": "physics",
+  "topic": "Birliklar",
+  "difficulty": 1,
+  "question": "Quvvat birligi nima?",
+  "options": [
+   "Joul",
+   "Vatt",
+   "Amper",
+   "Volt"
+  ],
+  "answer": 1,
+  "explanation": "Quvvat vattda (W) o‘lchanadi.",
+  "source": "original"
+ },
+ {
+  "id": "q088",
+  "subject": "physics",
+  "topic": "Elektr",
+  "difficulty": 1,
+  "question": "Elektr kuchlanish birligi nima?",
+  "options": [
+   "Amper",
+   "Vatt",
+   "Om",
+   "Volt"
+  ],
+  "answer": 3,
+  "explanation": "Kuchlanish voltda (V) o‘lchanadi.",
+  "source": "original"
+ },
+ {
+  "id": "q089",
+  "subject": "physics",
+  "topic": "Elektr",
+  "difficulty": 2,
+  "question": "Zanjir qismi uchun Om qonuni qaysi formula?",
+  "options": [
+   "U = I / R",
+   "I = R / U",
+   "I = U / R",
+   "I = U · R"
+  ],
+  "answer": 2,
+  "explanation": "Tok kuchi kuchlanishga to‘g‘ri, qarshilikka teskari proporsional.",
+  "source": "original"
+ },
+ {
+  "id": "q090",
+  "subject": "physics",
+  "topic": "Tovush",
+  "difficulty": 1,
+  "question": "Tovush qaysi muhitda tarqalmaydi?",
+  "options": [
+   "Havoda",
+   "Vakuumda",
+   "Temirda",
+   "Suvda"
+  ],
+  "answer": 1,
+  "explanation": "Tovush tarqalishi uchun modda kerak, vakuumda tarqalmaydi.",
+  "source": "original"
+ },
+ {
+  "id": "q091",
+  "subject": "physics",
+  "topic": "Mexanika",
+  "difficulty": 2,
+  "question": "Zichlik formulasi qaysi?",
+  "options": [
+   "ρ = m + V",
+   "ρ = m / V",
+   "ρ = V / m",
+   "ρ = m · V"
+  ],
+  "answer": 1,
+  "explanation": "Zichlik = massa / hajm.",
+  "source": "original"
+ },
+ {
+  "id": "q092",
+  "subject": "physics",
+  "topic": "Birliklar",
+  "difficulty": 1,
+  "question": "Bosim birligi nima?",
+  "options": [
+   "Vatt",
+   "Joul",
+   "Nyuton",
+   "Paskal"
+  ],
+  "answer": 3,
+  "explanation": "Bosim paskalda (Pa) o‘lchanadi.",
+  "source": "original"
+ },
+ {
+  "id": "q093",
+  "subject": "physics",
+  "topic": "Termodinamika",
+  "difficulty": 1,
+  "question": "Normal bosimda suv necha °C da muzlaydi?",
+  "options": [
+   "−273 °C",
+   "100 °C",
+   "0 °C",
+   "−10 °C"
+  ],
+  "answer": 2,
+  "explanation": "Suv 0 °C da muzlaydi.",
+  "source": "original"
+ },
+ {
+  "id": "q094",
+  "subject": "physics",
+  "topic": "Magnitlar",
+  "difficulty": 1,
+  "question": "Magnitning qutblari qanday ataladi?",
+  "options": [
+   "Shimoliy va janubiy",
+   "Anod va katod",
+   "Faza va nol",
+   "Musbat va manfiy"
+  ],
+  "answer": 0,
+  "explanation": "Magnitning shimoliy (N) va janubiy (S) qutblari bor.",
+  "source": "original"
+ },
+ {
+  "id": "q095",
+  "subject": "chemistry",
+  "topic": "Noorganik kimyo",
+  "difficulty": 1,
+  "question": "Karbonat angidridning formulasi qaysi?",
+  "options": [
+   "CO₂",
+   "O₂",
+   "H₂O",
+   "CO"
+  ],
+  "answer": 0,
+  "explanation": "Karbonat angidrid — CO₂.",
+  "source": "original"
+ },
+ {
+  "id": "q096",
+  "subject": "chemistry",
+  "topic": "Elementlar",
+  "difficulty": 1,
+  "question": "Temir elementining belgisi qaysi?",
+  "options": [
+   "Ir",
+   "Fe",
+   "F",
+   "Te"
+  ],
+  "answer": 1,
+  "explanation": "Temir — Fe (lotincha Ferrum).",
+  "source": "original"
+ },
+ {
+  "id": "q097",
+  "subject": "chemistry",
+  "topic": "Elementlar",
+  "difficulty": 1,
+  "question": "Oltin elementining belgisi qaysi?",
+  "options": [
+   "Al",
+   "Go",
+   "Ag",
+   "Au"
+  ],
+  "answer": 3,
+  "explanation": "Oltin — Au (lotincha Aurum).",
+  "source": "original"
+ },
+ {
+  "id": "q098",
+  "subject": "chemistry",
+  "topic": "Elementlar",
+  "difficulty": 1,
+  "question": "Kaliy elementining belgisi qaysi?",
+  "options": [
+   "Ka",
+   "Ca",
+   "Kl",
+   "K"
+  ],
+  "answer": 3,
+  "explanation": "Kaliy — K (lotincha Kalium).",
+  "source": "original"
+ },
+ {
+  "id": "q099",
+  "subject": "chemistry",
+  "topic": "Atmosfera",
+  "difficulty": 1,
+  "question": "Atmosfera havosida eng ko‘p uchraydigan gaz qaysi?",
+  "options": [
+   "Argon",
+   "Kislorod",
+   "Azot",
+   "Karbonat angidrid"
+  ],
+  "answer": 2,
+  "explanation": "Havoning taxminan 78 % ini azot tashkil qiladi.",
+  "source": "original"
+ },
+ {
+  "id": "q100",
+  "subject": "chemistry",
+  "topic": "Eritmalar",
+  "difficulty": 1,
+  "question": "pH = 7 bo‘lgan muhit qanday ataladi?",
+  "options": [
+   "Ishqoriy",
+   "Kislotali",
+   "Tuzli",
+   "Neytral"
+  ],
+  "answer": 3,
+  "explanation": "pH = 7 — neytral muhit.",
+  "source": "original"
+ },
+ {
+  "id": "q101",
+  "subject": "chemistry",
+  "topic": "Eritmalar",
+  "difficulty": 1,
+  "question": "Kislotali muhitda lakmus qaysi rangga bo‘yaladi?",
+  "options": [
+   "Sariq",
+   "Ko‘k",
+   "Qizil",
+   "Yashil"
+  ],
+  "answer": 2,
+  "explanation": "Lakmus kislotada qizaradi.",
+  "source": "original"
+ },
+ {
+  "id": "q102",
+  "subject": "chemistry",
+  "topic": "Elementlar",
+  "difficulty": 1,
+  "question": "Olmos qaysi kimyoviy elementdan iborat?",
+  "options": [
+   "Kremniy",
+   "Uglerod",
+   "Azot",
+   "Temir"
+  ],
+  "answer": 1,
+  "explanation": "Olmos — uglerodning kristall shakli.",
+  "source": "original"
+ },
+ {
+  "id": "q103",
+  "subject": "chemistry",
+  "topic": "Tarix",
+  "difficulty": 1,
+  "question": "Kimyoviy elementlar davriy sistemasini kim yaratgan?",
+  "options": [
+   "A. Lavuazye",
+   "D. I. Mendeleyev",
+   "I. Nyuton",
+   "M. Lomonosov"
+  ],
+  "answer": 1,
+  "explanation": "Davriy qonun va sistemani Mendeleyev yaratgan.",
+  "source": "original"
+ },
+ {
+  "id": "q104",
+  "subject": "chemistry",
+  "topic": "Noorganik kimyo",
+  "difficulty": 2,
+  "question": "H₂SO₄ moddasining nomi qaysi?",
+  "options": [
+   "Nitrat kislota",
+   "Sulfat kislota",
+   "Fosfat kislota",
+   "Xlorid kislota"
+  ],
+  "answer": 1,
+  "explanation": "H₂SO₄ — sulfat kislota.",
+  "source": "original"
+ },
+ {
+  "id": "q105",
+  "subject": "biology",
+  "topic": "Odam anatomiyasi",
+  "difficulty": 1,
+  "question": "Odam tanasidagi eng katta organ qaysi?",
+  "options": [
+   "Jigar",
+   "O‘pka",
+   "Yurak",
+   "Teri"
+  ],
+  "answer": 3,
+  "explanation": "Teri — eng katta organ.",
+  "source": "original"
+ },
+ {
+  "id": "q106",
+  "subject": "biology",
+  "topic": "Odam anatomiyasi",
+  "difficulty": 1,
+  "question": "O‘pkada gaz almashinuvi qayerda sodir bo‘ladi?",
+  "options": [
+   "Hiqildoqda",
+   "Alveolalarda",
+   "Bronxlarda",
+   "Traxeyada"
+  ],
+  "answer": 1,
+  "explanation": "Gaz almashinuvi o‘pka pufakchalari — alveolalarda kechadi.",
+  "source": "original"
+ },
+ {
+  "id": "q107",
+  "subject": "biology",
+  "topic": "Odam anatomiyasi",
+  "difficulty": 1,
+  "question": "Gemoglobinning asosiy vazifasi nima?",
+  "options": [
+   "Infeksiyadan himoya",
+   "Ovqat hazm qilish",
+   "Kislorod tashish",
+   "Qon ivishi"
+  ],
+  "answer": 2,
+  "explanation": "Gemoglobin kislorodni to‘qimalarga tashiydi.",
+  "source": "original"
+ },
+ {
+  "id": "q108",
+  "subject": "biology",
+  "topic": "O‘simliklar",
+  "difficulty": 1,
+  "question": "O‘simlik ildizining asosiy vazifasi nima?",
+  "options": [
+   "Urug‘lanish",
+   "Suv va mineral moddalarni shimish",
+   "Fotosintez",
+   "Gul ochish"
+  ],
+  "answer": 1,
+  "explanation": "Ildiz tuproqdan suv va mineral tuzlarni so‘radi.",
+  "source": "original"
+ },
+ {
+  "id": "q109",
+  "subject": "biology",
+  "topic": "Hujayra",
+  "difficulty": 2,
+  "question": "Oqsil sintezi hujayraning qaysi organoidida sodir bo‘ladi?",
+  "options": [
+   "Vakuolada",
+   "Mitoxondriyada",
+   "Xloroplastda",
+   "Ribosomada"
+  ],
+  "answer": 3,
+  "explanation": "Oqsillar ribosomalarda sintezlanadi.",
+  "source": "original"
+ },
+ {
+  "id": "q110",
+  "subject": "biology",
+  "topic": "Hayvonlar",
+  "difficulty": 1,
+  "question": "Quyidagilardan qaysi biri sutemizuvchi?",
+  "options": [
+   "Akula",
+   "Qurbaqa",
+   "Delfin",
+   "Timsoh"
+  ],
+  "answer": 2,
+  "explanation": "Delfin — sutemizuvchi.",
+  "source": "original"
+ },
+ {
+  "id": "q111",
+  "subject": "biology",
+  "topic": "Odam anatomiyasi",
+  "difficulty": 1,
+  "question": "Qonning qizil hujayralari qanday ataladi?",
+  "options": [
+   "Limfositlar",
+   "Leykositlar",
+   "Eritrositlar",
+   "Trombositlar"
+  ],
+  "answer": 2,
+  "explanation": "Qizil qon tanachalari — eritrositlar.",
+  "source": "original"
+ },
+ {
+  "id": "q112",
+  "subject": "biology",
+  "topic": "Odam anatomiyasi",
+  "difficulty": 1,
+  "question": "Katta yoshli odamda to‘liq tishlar soni nechta?",
+  "options": [
+   "32",
+   "36",
+   "30",
+   "20"
+  ],
+  "answer": 0,
+  "explanation": "To‘liq doimiy tishlar soni — 32.",
+  "source": "original"
+ },
+ {
+  "id": "q113",
+  "subject": "biology",
+  "topic": "Hayvonlar",
+  "difficulty": 1,
+  "question": "Quyidagilardan qaysi biri bir hujayrali organizm?",
+  "options": [
+   "Baliq",
+   "Amyoba",
+   "Qurbaqa",
+   "Olma daraxti"
+  ],
+  "answer": 1,
+  "explanation": "Amyoba — bir hujayrali jonzot.",
+  "source": "original"
+ },
+ {
+  "id": "q114",
+  "subject": "biology",
+  "topic": "Odam salomatligi",
+  "difficulty": 2,
+  "question": "C vitamini yetishmasligidan qaysi kasallik kelib chiqadi?",
+  "options": [
+   "Raxit",
+   "Shapko‘rlik",
+   "Diabet",
+   "Singa"
+  ],
+  "answer": 3,
+  "explanation": "C vitamini yetishmasa singa kasalligi paydo bo‘ladi.",
+  "source": "original"
+ },
+ {
+  "id": "q115",
+  "subject": "english",
+  "topic": "Grammar",
+  "difficulty": 1,
+  "question": "Choose the correct word: “They ___ football every Sunday.”",
+  "options": [
+   "playing",
+   "played",
+   "plays",
+   "play"
+  ],
+  "answer": 3,
+  "explanation": "“They” bilan Present Simple’da fe’lga -s qo‘shilmaydi.",
+  "source": "original"
+ },
+ {
+  "id": "q116",
+  "subject": "english",
+  "topic": "Grammar",
+  "difficulty": 1,
+  "question": "What is the plural of “man”?",
+  "options": [
+   "mans",
+   "mens",
+   "men",
+   "manes"
+  ],
+  "answer": 2,
+  "explanation": "“Man” — noto‘g‘ri ko‘plik: men.",
+  "source": "original"
+ },
+ {
+  "id": "q117",
+  "subject": "english",
+  "topic": "Vocabulary",
+  "difficulty": 1,
+  "question": "“Beautiful” so‘zining o‘zbekcha tarjimasi qaysi?",
+  "options": [
+   "tez",
+   "chiroyli",
+   "xunuk",
+   "katta"
+  ],
+  "answer": 1,
+  "explanation": "Beautiful — chiroyli.",
+  "source": "original"
+ },
+ {
+  "id": "q118",
+  "subject": "english",
+  "topic": "Grammar",
+  "difficulty": 1,
+  "question": "What is the past form of “eat”?",
+  "options": [
+   "eated",
+   "eats",
+   "ate",
+   "eaten"
+  ],
+  "answer": 2,
+  "explanation": "Eat – ate – eaten.",
+  "source": "original"
+ },
+ {
+  "id": "q119",
+  "subject": "english",
+  "topic": "Vocabulary",
+  "difficulty": 1,
+  "question": "What is the opposite of “big”?",
+  "options": [
+   "fast",
+   "long",
+   "tall",
+   "small"
+  ],
+  "answer": 3,
+  "explanation": "Big ↔ small.",
+  "source": "original"
+ },
+ {
+  "id": "q120",
+  "subject": "english",
+  "topic": "Grammar",
+  "difficulty": 1,
+  "question": "Choose the correct word: “I ___ breakfast at 8 every day.”",
+  "options": [
+   "had",
+   "having",
+   "have",
+   "has"
+  ],
+  "answer": 2,
+  "explanation": "“I” va every day — Present Simple: have.",
+  "source": "original"
+ },
+ {
+  "id": "q121",
+  "subject": "english",
+  "topic": "Grammar",
+  "difficulty": 1,
+  "question": "Choose the correct word: “She has ___ orange.”",
+  "options": [
+   "two",
+   "an",
+   "many",
+   "a"
+  ],
+  "answer": 1,
+  "explanation": "“Orange” unli tovushdan boshlanadi, shuning uchun “an”.",
+  "source": "original"
+ },
+ {
+  "id": "q122",
+  "subject": "english",
+  "topic": "Vocabulary",
+  "difficulty": 1,
+  "question": "What do you answer to “Thank you”?",
+  "options": [
+   "You’re welcome",
+   "Excuse me",
+   "See you",
+   "Good night"
+  ],
+  "answer": 0,
+  "explanation": "“Thank you” ga “You’re welcome” deb javob beriladi.",
+  "source": "original"
+ },
+ {
+  "id": "q123",
+  "subject": "english",
+  "topic": "Vocabulary",
+  "difficulty": 1,
+  "question": "Which number is “fifteen”?",
+  "options": [
+   "50",
+   "15",
+   "5",
+   "14"
+  ],
+  "answer": 1,
+  "explanation": "Fifteen = 15.",
+  "source": "original"
+ },
+ {
+  "id": "q124",
+  "subject": "english",
+  "topic": "Grammar",
+  "difficulty": 1,
+  "question": "Choose the correct word: “There ___ three books on the table.”",
+  "options": [
+   "is",
+   "be",
+   "are",
+   "am"
+  ],
+  "answer": 2,
+  "explanation": "Ko‘plik (three books) bilan “there are”.",
+  "source": "original"
+ },
+ {
+  "id": "q125",
+  "subject": "geography",
+  "topic": "Qit’alar",
+  "difficulty": 1,
+  "question": "Eng katta qit’a qaysi?",
+  "options": [
+   "Yevropa",
+   "Afrika",
+   "Osiyo",
+   "Avstraliya"
+  ],
+  "answer": 2,
+  "explanation": "Osiyo — eng katta qit’a.",
+  "source": "original"
+ },
+ {
+  "id": "q126",
+  "subject": "geography",
+  "topic": "Qit’alar",
+  "difficulty": 1,
+  "question": "Eng kichik qit’a qaysi?",
+  "options": [
+   "Antarktida",
+   "Janubiy Amerika",
+   "Avstraliya",
+   "Yevropa"
+  ],
+  "answer": 2,
+  "explanation": "Avstraliya — eng kichik qit’a.",
+  "source": "original"
+ },
+ {
+  "id": "q127",
+  "subject": "geography",
+  "topic": "O‘zbekiston",
+  "difficulty": 1,
+  "question": "O‘zbekistondagi eng katta cho‘l qaysi?",
+  "options": [
+   "Gobi",
+   "Qizilqum",
+   "Qoraqum",
+   "Sahroi Kabir"
+  ],
+  "answer": 1,
+  "explanation": "Qizilqum Amudaryo va Sirdaryo oralig‘ida joylashgan.",
+  "source": "original"
+ },
+ {
+  "id": "q128",
+  "subject": "geography",
+  "topic": "O‘zbekiston",
+  "difficulty": 1,
+  "question": "Toshkent qaysi daryo havzasida joylashgan?",
+  "options": [
+   "Qashqadaryo",
+   "Amudaryo",
+   "Chirchiq",
+   "Zarafshon"
+  ],
+  "answer": 2,
+  "explanation": "Toshkent Chirchiq daryosi vodiysida joylashgan.",
+  "source": "original"
+ },
+ {
+  "id": "q129",
+  "subject": "geography",
+  "topic": "O‘zbekiston",
+  "difficulty": 1,
+  "question": "Samarqand qaysi daryo vodiysida joylashgan?",
+  "options": [
+   "Zarafshon",
+   "Chirchiq",
+   "Sirdaryo",
+   "Surxondaryo"
+  ],
+  "answer": 0,
+  "explanation": "Samarqand Zarafshon vodiysida.",
+  "source": "original"
+ },
+ {
+  "id": "q130",
+  "subject": "geography",
+  "topic": "Yer",
+  "difficulty": 1,
+  "question": "Ekvator Yerni qaysi yarim sharlarga ajratadi?",
+  "options": [
+   "Yuqori va Quyi",
+   "Markaziy va Chekka",
+   "Sharqiy va G‘arbiy",
+   "Shimoliy va Janubiy"
+  ],
+  "answer": 3,
+  "explanation": "Ekvator Yerni Shimoliy va Janubiy yarim sharlarga bo‘ladi.",
+  "source": "original"
+ },
+ {
+  "id": "q131",
+  "subject": "geography",
+  "topic": "Yer",
+  "difficulty": 1,
+  "question": "Quyosh qaysi tomondan chiqadi?",
+  "options": [
+   "Sharq",
+   "G‘arb",
+   "Shimol",
+   "Janub"
+  ],
+  "answer": 0,
+  "explanation": "Quyosh sharqdan chiqib, g‘arbga botadi.",
+  "source": "original"
+ },
+ {
+  "id": "q132",
+  "subject": "geography",
+  "topic": "Orollar",
+  "difficulty": 1,
+  "question": "Dunyodagi eng katta orol qaysi?",
+  "options": [
+   "Kuba",
+   "Madagaskar",
+   "Islandiya",
+   "Grenlandiya"
+  ],
+  "answer": 3,
+  "explanation": "Grenlandiya — dunyodagi eng katta orol.",
+  "source": "original"
+ },
+ {
+  "id": "q133",
+  "subject": "geography",
+  "topic": "O‘zbekiston",
+  "difficulty": 1,
+  "question": "Quyidagilardan qaysi davlat O‘zbekiston bilan chegaradosh?",
+  "options": [
+   "Qozog‘iston",
+   "Mongoliya",
+   "Pokiston",
+   "Eron"
+  ],
+  "answer": 0,
+  "explanation": "O‘zbekiston Qozog‘iston bilan chegaradosh.",
+  "source": "original"
+ },
+ {
+  "id": "q134",
+  "subject": "geography",
+  "topic": "Yer",
+  "difficulty": 1,
+  "question": "Yer o‘z o‘qi atrofida taxminan qancha vaqtda bir marta aylanadi?",
+  "options": [
+   "30 kun",
+   "12 soat",
+   "365 kun",
+   "24 soat"
+  ],
+  "answer": 3,
+  "explanation": "Yerning o‘z o‘qi atrofida aylanishi — bir sutka.",
+  "source": "original"
+ },
+ {
+  "id": "q135",
+  "subject": "law",
+  "topic": "Davlat tuzilishi",
+  "difficulty": 1,
+  "question": "Hokimiyat odatda nechta tarmoqqa bo‘linadi?",
+  "options": [
+   "3",
+   "2",
+   "5",
+   "4"
+  ],
+  "answer": 0,
+  "explanation": "Qonun chiqaruvchi, ijro etuvchi va sud hokimiyati.",
+  "source": "original"
+ },
+ {
+  "id": "q136",
+  "subject": "law",
+  "topic": "Davlat tuzilishi",
+  "difficulty": 1,
+  "question": "Sud hokimiyatining asosiy vazifasi nima?",
+  "options": [
+   "Qonun chiqarish",
+   "Odil sudlovni amalga oshirish",
+   "Soliq yig‘ish",
+   "Saylov o‘tkazish"
+  ],
+  "answer": 1,
+  "explanation": "Sudlar odil sudlovni amalga oshiradi.",
+  "source": "original"
+ },
+ {
+  "id": "q137",
+  "subject": "law",
+  "topic": "Davlat tuzilishi",
+  "difficulty": 1,
+  "question": "Ijro hokimiyatini qaysi organ amalga oshiradi?",
+  "options": [
+   "Oliy Majlis",
+   "Vazirlar Mahkamasi",
+   "Oliy sud",
+   "Senat"
+  ],
+  "answer": 1,
+  "explanation": "Ijro hokimiyati — Hukumat (Vazirlar Mahkamasi).",
+  "source": "original"
+ },
+ {
+  "id": "q138",
+  "subject": "law",
+  "topic": "Huquq sohalari",
+  "difficulty": 1,
+  "question": "Jinoyat uchun javobgarlik qaysi kodeksda belgilanadi?",
+  "options": [
+   "Fuqarolik kodeksi",
+   "Mehnat kodeksi",
+   "Jinoyat kodeksi",
+   "Oila kodeksi"
+  ],
+  "answer": 2,
+  "explanation": "Jinoyatlar va jazolar Jinoyat kodeksida.",
+  "source": "original"
+ },
+ {
+  "id": "q139",
+  "subject": "law",
+  "topic": "Huquq sohalari",
+  "difficulty": 1,
+  "question": "Mehnat shartnomasi qaysi huquq sohasiga kiradi?",
+  "options": [
+   "Jinoyat huquqi",
+   "Soliq huquqi",
+   "Oila huquqi",
+   "Mehnat huquqi"
+  ],
+  "answer": 3,
+  "explanation": "Mehnat munosabatlarini mehnat huquqi tartibga soladi.",
+  "source": "original"
+ },
+ {
+  "id": "q140",
+  "subject": "law",
+  "topic": "Huquq sohalari",
+  "difficulty": 1,
+  "question": "Nikoh munosabatlari qaysi kodeksda tartibga solinadi?",
+  "options": [
+   "Soliq kodeksi",
+   "Oila kodeksi",
+   "Jinoyat kodeksi",
+   "Mehnat kodeksi"
+  ],
+  "answer": 1,
+  "explanation": "Nikoh va oila munosabatlari — Oila kodeksi.",
+  "source": "original"
+ },
+ {
+  "id": "q141",
+  "subject": "law",
+  "topic": "Inson huquqlari",
+  "difficulty": 1,
+  "question": "Inson huquqlari umumjahon deklaratsiyasini qaysi tashkilot qabul qilgan?",
+  "options": [
+   "BMT",
+   "NATO",
+   "OPEK",
+   "YUNESKO"
+  ],
+  "answer": 0,
+  "explanation": "Deklaratsiya 1948-yilda BMT Bosh Assambleyasi tomonidan qabul qilingan.",
+  "source": "original"
+ },
+ {
+  "id": "q142",
+  "subject": "law",
+  "topic": "Inson huquqlari",
+  "difficulty": 1,
+  "question": "Quyidagilardan qaysi biri fuqaroning huquqi?",
+  "options": [
+   "Boshqalar mulkini olish",
+   "Soliq to‘lamaslik",
+   "Qonunni buzish",
+   "Ta’lim olish"
+  ],
+  "answer": 3,
+  "explanation": "Ta’lim olish — Konstitutsiyada mustahkamlangan huquq.",
+  "source": "original"
+ },
+ {
+  "id": "q143",
+  "subject": "law",
+  "topic": "Huquq asoslari",
+  "difficulty": 2,
+  "question": "Qonunni bilmaslik shaxsni javobgarlikdan ozod qiladimi?",
+  "options": [
+   "Yo‘q",
+   "Ha",
+   "Faqat bolalarni",
+   "Faqat kattalarni"
+  ],
+  "answer": 0,
+  "explanation": "Qonunni bilmaslik javobgarlikdan ozod etmaydi.",
+  "source": "original"
+ },
+ {
+  "id": "q144",
+  "subject": "law",
+  "topic": "Davlat tuzilishi",
+  "difficulty": 1,
+  "question": "Qonunchilik palatasi qaysi organning tarkibiy qismi?",
+  "options": [
+   "Oliy Majlis",
+   "Prokuratura",
+   "Vazirlar Mahkamasi",
+   "Oliy sud"
+  ],
+  "answer": 0,
+  "explanation": "Oliy Majlis Qonunchilik palatasi va Senatdan iborat.",
+  "source": "original"
  }
 ]

@@ -2,7 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/nav_home" android:icon="@drawable/ic_home" android:title="@string/nav_home" />
     <item android:id="@+id/nav_tests" android:icon="@drawable/ic_tests" android:title="@string/nav_tests" />
-    <item android:id="@+id/nav_ai" android:icon="@drawable/ic_ai" android:title="@string/nav_ai" />
     <item android:id="@+id/nav_results" android:icon="@drawable/ic_results" android:title="@string/nav_results" />
     <item android:id="@+id/nav_profile" android:icon="@drawable/ic_profile" android:title="@string/nav_profile" />
 </menu>

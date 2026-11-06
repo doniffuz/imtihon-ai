@@ -37,7 +37,7 @@ data class Attempt(
 
 /** Lokal baza: savollar assets/questions.json dan o'qiladi, urinishlar har javobdan keyin darhol saqlanadi. */
 class Db private constructor(private val ctx: Context) :
-    SQLiteOpenHelper(ctx, "imtihon.db", null, 1) {
+    SQLiteOpenHelper(ctx, "imtihon.db", null, 2) {
 
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL(
@@ -60,7 +60,10 @@ class Db private constructor(private val ctx: Context) :
         seed(db)
     }
 
-    override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {}
+    /** Savollar bazasi yangilanganda (versiya oshganda) savollar qayta yoziladi, urinishlar saqlanib qoladi. */
+    override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
+        seed(db)
+    }
 
     private fun seed(db: SQLiteDatabase) {
         val json = ctx.assets.open("questions.json").bufferedReader(Charsets.UTF_8).use { it.readText() }
@@ -80,7 +83,7 @@ class Db private constructor(private val ctx: Context) :
                 put("explanation", o.optString("explanation"))
                 put("source", o.optString("source"))
             }
-            db.insert("questions", null, cv)
+            db.insertWithOnConflict("questions", null, cv, SQLiteDatabase.CONFLICT_REPLACE)
         }
     }
 
