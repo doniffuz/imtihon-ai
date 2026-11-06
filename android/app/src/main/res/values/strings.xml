@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">IMTIHON AI</string>
+    <string name="slogan">Bilimingni sinab ko‘r. Natijangni oshir.</string>
+    <string name="disclaimer">IMTIHON AI rasmiy davlat ilovasi emas.</string>
+
+    <!-- Navigatsiya -->
+    <string name="nav_home">Bosh sahifa</string>
+    <string name="nav_tests">Testlar</string>
+    <string name="nav_ai">AI Ustoz</string>
+    <string name="nav_results">Natijalar</string>
+    <string name="nav_profile">Profil</string>
+
+    <!-- Onboarding -->
+    <string name="ob_name_hint">Ismingiz (ixtiyoriy)</string>
+    <string name="ob_goal_title">Maqsadingiz nima?</string>
+    <string name="goal_otm">OTM</string>
+    <string name="goal_school">Maktab</string>
+    <string name="goal_certificate">Sertifikat</string>
+    <string name="goal_knowledge">Shunchaki bilim</string>
+    <string name="ob_subjects_title">Qaysi fanlarga tayyorlanasiz?</string>
+    <string name="ob_daily_title">Kunlik maqsad</string>
+    <string name="ob_daily_10">10 savol</string>
+    <string name="ob_daily_20">20 savol</string>
+    <string name="ob_daily_30">30 savol</string>
+    <string name="ob_daily_50">50 savol</string>
+    <string name="ob_ready_title">Tayyor!</string>
+    <string name="ob_ready_text">Ro‘yxatdan o‘tish shart emas. Sozlamalarni keyin Profil bo‘limida o‘zgartirishingiz mumkin.</string>
+    <string name="btn_next">Keyingi</string>
+    <string name="btn_back">Orqaga</string>
+    <string name="btn_start">Boshlash</string>
+    <string name="err_choose_goal">Maqsadingizni tanlang.</string>
+    <string name="err_choose_subject">Kamida bitta fanni tanlang.</string>
+
+    <!-- Home -->
+    <string name="greeting">Salom, %1$s</string>
+    <string name="guest_name">Mehmon</string>
+    <string name="today_progress">Bugungi progress: %1$d/%2$d</string>
+    <string name="streak">🔥 Ketma-ket kun: %1$d</string>
+    <string name="start_test">Test boshlash</string>
+    <string name="home_sections">Bo‘limlar</string>
+    <string name="card_exam">🎯 Real imtihon</string>
+    <string name="card_ai">🤖 AI Ustoz</string>
+    <string name="card_subjects">📚 Fanlar</string>
+    <string name="card_results">📊 Natijalar</string>
+    <string name="card_scan">📷 Savolni skanerlash</string>
+    <string name="today_recommendation">Bugungi tavsiya</string>
+    <string name="recommendation_empty">Birinchi testni yeching. Natijangizga qarab tavsiyalar shu yerda paydo bo‘ladi.</string>
+
+    <!-- Hali qo'shilmagan bo'limlar (halol xabar) -->
+    <string name="soon_title">Tez orada</string>
+    <string name="soon_tests">Test tizimi keyingi bosqichda qo‘shiladi. Hozircha bu bo‘lim ishlamaydi.</string>
+    <string name="soon_ai">AI Ustoz keyingi bosqichda qo‘shiladi. Hozircha bu bo‘lim ishlamaydi.</string>
+    <string name="soon_results">Natijalar testlar qo‘shilgach paydo bo‘ladi.</string>
+    <string name="soon_scan">Savolni skanerlash keyingi bosqichda qo‘shiladi.</string>
+
+    <!-- Profil -->
+    <string name="profile_name">Ism</string>
+    <string name="profile_goal">Maqsad</string>
+    <string name="profile_subjects">Fanlar</string>
+    <string name="profile_daily">Kunlik maqsad</string>
+    <string name="profile_daily_value">%1$d savol</string>
+    <string name="profile_reset">Sozlamalarni qayta o‘rnatish</string>
+</resources>

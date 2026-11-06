@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="subject_slugs">
+        <item>math</item>
+        <item>native_language</item>
+        <item>history</item>
+        <item>physics</item>
+        <item>chemistry</item>
+        <item>biology</item>
+        <item>english</item>
+        <item>geography</item>
+        <item>law</item>
+    </string-array>
+    <string-array name="subject_names">
+        <item>Matematika</item>
+        <item>Ona tili</item>
+        <item>O‘zbekiston tarixi</item>
+        <item>Fizika</item>
+        <item>Kimyo</item>
+        <item>Biologiya</item>
+        <item>Ingliz tili</item>
+        <item>Geografiya</item>
+        <item>Huquqshunoslik</item>
+    </string-array>
+</resources>
