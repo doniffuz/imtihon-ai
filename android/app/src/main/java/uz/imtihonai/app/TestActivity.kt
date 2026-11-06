@@ -49,8 +49,11 @@ class TestActivity : AppCompatActivity() {
         attemptId = savedInstanceState?.getLong("attempt_id")
             ?: intent.getLongExtra("attempt_id", -1L)
         if (attemptId < 0) {
-            val subject = intent.getStringExtra("subject").orEmpty()
-            attemptId = db.createAttempt(subject, 10)
+            attemptId = if (intent.getBooleanExtra("weak", false)) {
+                db.createWeakAttempt(10)
+            } else {
+                db.createAttempt(intent.getStringExtra("subject").orEmpty(), 10)
+            }
         }
         val attempt = if (attemptId > 0) db.attempt(attemptId) else null
         if (attempt == null) {

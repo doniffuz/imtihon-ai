@@ -59,6 +59,31 @@ class ResultsFragment : Fragment() {
             return
         }
 
+        val db = Db.get(ctx)
+        val t = db.totals()
+        fun line(s: String, size: Float, bold: Boolean = false, top: Int = 4) {
+            root.addView(TextView(ctx).apply {
+                text = s
+                textSize = size
+                setTextColor(ctx.getColor(R.color.app_on_surface))
+                if (bold) setTypeface(typeface, Typeface.BOLD)
+                setPadding(0, (top * d).toInt(), 0, 0)
+            })
+        }
+        val accuracy = if (t[2] > 0) t[1] * 100 / t[2] else 0
+        line(getString(R.string.stats_title), 20f, bold = true, top = 8)
+        line(getString(R.string.stats_tests, t[0]), 16f)
+        line(getString(R.string.stats_solved, t[2]), 16f)
+        line(getString(R.string.stats_accuracy, accuracy), 16f)
+        val avg = list.map { if (it.total > 0) it.correct * 100 / it.total else 0 }.average().toInt()
+        line(getString(R.string.stats_avg, avg), 16f)
+        line(getString(R.string.stats_time, formatTime(t[3])), 16f)
+        line(getString(R.string.stats_by_subject), 20f, bold = true, top = 20)
+        for ((slug, ok, total) in db.subjectStats()) {
+            line("${names[slug] ?: slug} — ${ok * 100 / total}%  ($ok/$total)", 16f, top = 6)
+        }
+        line(getString(R.string.history_title), 20f, bold = true, top = 20)
+
         for (a in list) {
             val percent = if (a.total > 0) a.correct * 100 / a.total else 0
             val card = MaterialCardView(ctx).apply {

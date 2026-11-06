@@ -99,7 +99,25 @@ class Db private constructor(private val ctx: Context) :
             "SELECT id FROM questions WHERE subject=? ORDER BY RANDOM() LIMIT ?",
             arrayOf(subject, maxCount.toString())
         ).use { while (it.moveToNext()) ids.add(it.getString(0)) }
+        return insertAttempt(subject, ids)
+    }
+
+    /** Zaif mavzular (aniqlik 70% dan past) bo'yicha mashq. Zaif mavzu bo'lmasa -1. */
+    fun createWeakAttempt(maxCount: Int): Long {
+        val topics = weakTopics().map { it.first }
+        if (topics.isEmpty()) return -1
+        val marks = topics.joinToString(",") { "?" }
+        val args = (topics + maxCount.toString()).toTypedArray()
+        val ids = ArrayList<String>()
+        readableDatabase.rawQuery(
+            "SELECT id FROM questions WHERE topic IN ($marks) ORDER BY RANDOM() LIMIT ?", args
+        ).use { while (it.moveToNext()) ids.add(it.getString(0)) }
+        return insertAttempt("weak", ids)
+    }
+
+    private fun insertAttempt(subject: String, ids: List<String>): Long {
         if (ids.isEmpty()) return -1
+        val db = writableDatabase
         db.beginTransaction()
         try {
             val cv = ContentValues().apply {
@@ -232,8 +250,31 @@ class Db private constructor(private val ctx: Context) :
     }
 
     /** Eng past aniqlikdagi mavzu: (mavzu, foiz). Ma'lumot bo'lmasa null. */
-    fun weakestTopic(): Pair<String, Int>? {
-        var best: Pair<String, Int>? = null
+    fun weakestTopic(): Pair<String, Int>? = allTopicAccuracy().minByOrNull { it.second }
+
+    /** Aniqligi 70% dan past mavzular (mavzu, foiz). */
+    fun weakTopics(): List<Pair<String, Int>> = allTopicAccuracy().filter { it.second < 70 }
+
+    /** Umumiy statistika: (testlar soni, to'g'ri javoblar, jami savollar, sekundlar). */
+    fun totals(): IntArray =
+        readableDatabase.rawQuery(
+            "SELECT COUNT(*), COALESCE(SUM(correct),0), COALESCE(SUM(total),0), COALESCE(SUM(time_sec),0) " +
+                "FROM attempts WHERE finished>0", null
+        ).use { it.moveToFirst(); intArrayOf(it.getInt(0), it.getInt(1), it.getInt(2), it.getInt(3)) }
+
+    /** Fan bo'yicha (fan, to'g'ri, jami). Zaif mavzu mashqlari ham hisobga olinadi. */
+    fun subjectStats(): List<Triple<String, Int, Int>> {
+        val list = ArrayList<Triple<String, Int, Int>>()
+        readableDatabase.rawQuery(
+            "SELECT q.subject, SUM(CASE WHEN a.selected=q.answer THEN 1 ELSE 0 END), COUNT(*) " +
+                "FROM answers a JOIN questions q ON q.id=a.question_id " +
+                "JOIN attempts t ON t.id=a.attempt_id WHERE t.finished>0 GROUP BY q.subject", null
+        ).use { while (it.moveToNext()) list.add(Triple(it.getString(0), it.getInt(1), it.getInt(2))) }
+        return list
+    }
+
+    private fun allTopicAccuracy(): List<Pair<String, Int>> {
+        val list = ArrayList<Pair<String, Int>>()
         readableDatabase.rawQuery(
             "SELECT q.topic, SUM(CASE WHEN a.selected=q.answer THEN 1 ELSE 0 END), COUNT(*) " +
                 "FROM answers a JOIN questions q ON q.id=a.question_id " +
@@ -241,11 +282,10 @@ class Db private constructor(private val ctx: Context) :
                 "WHERE t.finished>0 AND a.selected>=0 GROUP BY q.topic", null
         ).use {
             while (it.moveToNext()) {
-                val pct = it.getInt(1) * 100 / it.getInt(2)
-                if (best == null || pct < best!!.second) best = Pair(it.getString(0), pct)
+                list.add(Pair(it.getString(0), it.getInt(1) * 100 / it.getInt(2)))
             }
         }
-        return best
+        return list
     }
 
     companion object {
@@ -261,7 +301,7 @@ object Subjects {
     fun names(ctx: Context): Map<String, String> {
         val slugs = ctx.resources.getStringArray(R.array.subject_slugs)
         val names = ctx.resources.getStringArray(R.array.subject_names)
-        return slugs.indices.associate { slugs[it] to names[it] }
+        return slugs.indices.associate { slugs[it] to names[it] } + ("weak" to ctx.getString(R.string.weak_practice_title))
     }
 }
 

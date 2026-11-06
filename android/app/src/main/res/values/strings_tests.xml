@@ -35,6 +35,15 @@
     <string name="explanation">Izoh: %1$s</string>
     <string name="btn_close">Yopish</string>
 
+    <string name="weak_practice_title">Zaif mavzularni mashq qilish</string>
+    <string name="stats_title">Umumiy statistika</string>
+    <string name="stats_tests">Yakunlangan testlar: %1$d</string>
+    <string name="stats_solved">Yechilgan savollar: %1$d</string>
+    <string name="stats_accuracy">Aniqlik: %1$d%%</string>
+    <string name="stats_avg">O‘rtacha ball: %1$d%%</string>
+    <string name="stats_time">O‘qish vaqti: %1$s</string>
+    <string name="stats_by_subject">Fanlar bo‘yicha aniqlik</string>
+    <string name="history_title">Test tarixi</string>
     <string name="results_title">Natijalar</string>
     <string name="results_empty">Hali tugallangan test yo‘q. Birinchi testni Testlar bo‘limida yeching.</string>
     <string name="result_row">%1$d/%2$d to‘g‘ri · %3$d%%</string>

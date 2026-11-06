@@ -79,9 +79,36 @@ class TestsFragment : Fragment() {
             root.addView(card)
         }
 
+        val weak = db.weakTopics()
+        if (weak.isNotEmpty()) {
+            val card = card(ctx, d, ctx.getColor(R.color.brand_container))
+            card.isClickable = true
+            card.isFocusable = true
+            val col = LinearLayout(ctx).apply {
+                orientation = LinearLayout.VERTICAL
+                setPadding((20 * d).toInt(), (16 * d).toInt(), (20 * d).toInt(), (16 * d).toInt())
+            }
+            col.addView(TextView(ctx).apply {
+                setText(R.string.weak_practice_title)
+                textSize = 18f
+                setTypeface(typeface, Typeface.BOLD)
+                setTextColor(ctx.getColor(R.color.brand_on_container))
+            })
+            col.addView(TextView(ctx).apply {
+                text = weak.joinToString("\n") { "${it.first} — ${it.second}%" }
+                textSize = 14f
+                setTextColor(ctx.getColor(R.color.brand_on_container))
+            })
+            card.addView(col)
+            card.setOnClickListener {
+                startActivity(Intent(ctx, TestActivity::class.java).putExtra("weak", true))
+            }
+            root.addView(card)
+        }
+
         // Foydalanuvchi tanlagan fanlar birinchi turadi.
         val chosen = prefs.subjects
-        val order = names.keys.sortedBy { if (it in chosen) 0 else 1 }
+        val order = names.keys.filter { it != "weak" }.sortedBy { if (it in chosen) 0 else 1 }
         for (slug in order) {
             val count = db.questionCount(slug)
             val card = card(ctx, d, ctx.getColor(R.color.app_surface_variant))
