@@ -128,7 +128,7 @@ class Db private constructor(private val ctx: Context) :
         db.execSQL("CREATE INDEX IF NOT EXISTS idx_att_open ON attempts(finished, id)")
     }
 
-    /** Bundled savollar: questions.json (kichik boshlang'ich to'plam) va assets/packs/*.jsonl (oqim bilan). */
+    /** Bundled savollar: questions.json (kichik boshlang'ich to'plam) va assets/packs papkasidagi .jsonl fayllar (oqim bilan). */
     private fun seed(db: SQLiteDatabase) {
         try {
             val json = ctx.assets.open("questions.json").bufferedReader(Charsets.UTF_8).use { it.readText() }
